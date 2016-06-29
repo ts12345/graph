@@ -14,6 +14,8 @@ public class GRAPH
 
     public GRAPH(int maximaleAnzahlKnoten) 
     {      
+        this.maximaleAnzahlKnoten = maximaleAnzahlKnoten;
+        knotenfeld = new KNOTEN[maximaleAnzahlKnoten];
 
     }
 
@@ -25,7 +27,12 @@ public class GRAPH
      *         ansonsten -1
      */
     public int addKnoten(KNOTEN knoten) {
-        return -1;
+        if(aktuelleAnzahlKnoten >= maximaleAnzahlKnoten) {
+            return -1;
+        }
+        knotenfeld[aktuelleAnzahlKnoten] = knoten;
+        aktuelleAnzahlKnoten = aktuelleAnzahlKnoten + 1;
+        return aktuelleAnzahlKnoten - 1;
     }
 
     /**
