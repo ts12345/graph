@@ -102,4 +102,16 @@ public class GRAPH
         // am einfachsten ist es vielleicht, einfach einen neue Adjazenzmatrix und
         // eine neues Knotenfeld anzulegen
     }
+
+    /**
+     * findet den internen Index, der zum Knoten mit der Bezeichnung bezeichnung gehört
+     * 
+     * @param bezeichnung Die Bezeichung des Knoten, der gesucht werden soll
+     * @return falls der Knoten gefunden wurde, wird die interne Nummerierung zurückgegeben,
+     *         ansonsten -1
+     */
+    public int getKnotenIndex(String bezeichnung) {
+        return -1;
+    }
+
 }
