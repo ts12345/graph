@@ -84,9 +84,9 @@ public class GRAPH
      * @param start die Bezeichnung des Startknotens
      * @param ziel die Bezeichnung des Zielknotens
      */
-    void deleteKante(String start, String ziel, int gewicht) {
+    void deleteKante(String start, String ziel) {
         // interne Nummern bestimmen und dann
-        // deleteKante(int, int, int) verwenden !
+        // deleteKante(int, int) verwenden !
     }
 
     /**
