@@ -15,8 +15,16 @@ public class GRAPH
     public GRAPH(int maximaleAnzahlKnoten) 
     {      
         this.maximaleAnzahlKnoten = maximaleAnzahlKnoten;
+        
         knotenfeld = new KNOTEN[maximaleAnzahlKnoten];
 
+        adjazenzmatrix = new int[maximaleAnzahlKnoten][maximaleAnzahlKnoten];
+        // Adjazenzmatrix komplett mit -1 belegen
+        for(int i = 0; i < maximaleAnzahlKnoten; i++)
+            for(int j = 0; j < maximaleAnzahlKnoten; j++)
+                adjazenzmatrix[i][j] = -1;
+
+        aktuelleAnzahlKnoten = 0;
     }
 
     /**
@@ -125,7 +133,7 @@ public class GRAPH
 
         System.out.println(a == b);
         // liefert etwas überraschend false
-        
+
         return -1;
     }
 
