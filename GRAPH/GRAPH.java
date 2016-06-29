@@ -92,10 +92,9 @@ public class GRAPH
     /**
      * löscht einen Knoten aus dem Graphen
      * 
-     * @param start die interne Nummer des Startknotens
-     * @param ziel die interne Nummer des Zielknotens
+     * @param nr die interne Nummer des Knotens
      */
-    public void deleteKnoten(int start, int ziel) {
+    public void deleteKnoten(int nr) {
         // schwere Aufgabe
         // es muss eine Zeile aus der Matrix ,,gelöscht" werden
         // die hinteren Knoten müssen ein Feld nach vorne rücken
