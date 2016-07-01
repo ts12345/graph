@@ -142,4 +142,8 @@ public class GRAPH
         return maximaleAnzahlKnoten;
     }
 
+    public int getGewicht(int start, int ziel) {
+        return adjazenzmatrix[start][ziel];
+    }
+
 }
