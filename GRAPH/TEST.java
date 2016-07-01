@@ -23,11 +23,11 @@ public class TEST
 	daten[10] = new ORT("Ulm",        120714);
 	daten[11] = new ORT("Muenchen",  1429584);
 
-        for(int i = 0; i < 2; i++) {
+        for(int i = 0; i < 12; i++) {
             knoten[i] = new KNOTEN(daten[i]);
         }
 
-        for(int i = 0; i < 2; i++) {
+        for(int i = 0; i < 12; i++) {
             knotenNr[i] = g.addKnoten(knoten[i]);
         }
 
