@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Beschreiben Sie hier die Klasse GRAPH.
  * 
  * @author (Ihr Name) 
@@ -14,7 +14,7 @@ public class GRAPH
     public GRAPH(int maximaleAnzahlKnoten) 
     {      
         this.maximaleAnzahlKnoten = maximaleAnzahlKnoten;
-        
+
         knotenfeld = new KNOTEN[maximaleAnzahlKnoten];
 
         adjazenzmatrix = new int[maximaleAnzahlKnoten][maximaleAnzahlKnoten];
@@ -132,6 +132,14 @@ public class GRAPH
             }
         }    
         return -1;
+    }
+
+    public int getAktuelleAnzahlKnoten() {
+        return aktuelleAnzahlKnoten;
+    }
+
+    public int getMaximaleAnzahlKnoten() {
+        return maximaleAnzahlKnoten;
     }
 
 }
