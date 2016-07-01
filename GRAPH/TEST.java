@@ -81,5 +81,8 @@ public class TEST
         g.addKante(knotenNr[11], knotenNr[10], 160);
 
     }
-    
+
+    public GRAPH getGraph() {
+        return g;
+    }
 }
