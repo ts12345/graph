@@ -1,4 +1,4 @@
-
+﻿
 /**
  * Beschreiben Sie hier die Klasse GRAPH.
  * 
@@ -37,6 +37,15 @@ public class GRAPH
     public int addKnoten(KNOTEN knoten) {
         if(aktuelleAnzahlKnoten >= maximaleAnzahlKnoten) {
             return -1;
+        }
+        if(null == knoten){
+            return -1;
+        }
+        String test = knoten.getBezeichnung();
+        for (int i=0; i < aktuelleAnzahlKnoten; i++) {
+            if(test.equals(knotenfeld[i].getBezeichnung())){
+                return -1;
+            }
         }
         knotenfeld[aktuelleAnzahlKnoten] = knoten;
         aktuelleAnzahlKnoten = aktuelleAnzahlKnoten + 1;
