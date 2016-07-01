@@ -1,5 +1,4 @@
-﻿
-/**
+﻿/**
  * Beschreiben Sie hier die Klasse GRAPH.
  * 
  * @author (Ihr Name) 
@@ -127,22 +126,11 @@ public class GRAPH
      *         ansonsten -1
      */
     public int getKnotenIndex(String bezeichnung) {
-        // um String-Objekte zu vergleichen muss man equals verwenden:
-        String a = new String("123");
-        String b = new String("123");
-        String c = new String("321");
-
-        System.out.println(a.equals(b));
-        // liefert erwartungsgemäß true
-        System.out.println(a.equals(c));
-        // liefert erwartungsgemäß false
-
-        // == testet bei zusammengesetzen Datentypen, ob es sich um die gleiche
-        // Referenz handelt:
-
-        System.out.println(a == b);
-        // liefert etwas überraschend false
-
+        for (int i=0; i < aktuelleAnzahlKnoten; i++) {
+            if(bezeichnung.equals(knotenfeld[i].getBezeichnung())){
+                return i;
+            }
+        }    
         return -1;
     }
 
