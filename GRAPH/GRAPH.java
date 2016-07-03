@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Beschreiben Sie hier die Klasse GRAPH.
  * 
  * @author (Ihr Name) 
@@ -7,7 +7,7 @@
 public class GRAPH
 {
     private KNOTEN[] knotenfeld;
-    private int[][]  adjazenzmatrix;
+    private int[][]  adjazenzmatrix; // im format adjazenzmatrix[start][ziel]
     private int maximaleAnzahlKnoten;
     private int aktuelleAnzahlKnoten;
 
@@ -59,7 +59,11 @@ public class GRAPH
      * @param gewicht das Gewicht der Kante
      */
     void addKante(int start, int ziel, int gewicht) {
-
+        boolean a = !((start>=0) && (ziel>=0) && (gewicht>=0) && (start<aktuelleAnzahlKnoten) && (ziel<aktuelleAnzahlKnoten));
+        if(a){
+            return;
+        }        
+	adjazenzmatrix[start][ziel]=gewicht;
     }
 
     /**
