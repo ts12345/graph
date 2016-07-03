@@ -74,8 +74,9 @@ public class GRAPH
      * @param gewicht das Gewicht der Kante
      */
     void addKante(String start, String ziel, int gewicht) {
-        // interne Nummern bestimmen und dann
-        // addKante(int, int, int) verwenden !
+        int st = getKnotenIndex(start);
+        int zi = getKnotenIndex(ziel);// interne Nummern bestimmen und dann
+        addKante(st,zi,gewicht);// addKante(int, int, int) verwenden !
     }
 
     /**
