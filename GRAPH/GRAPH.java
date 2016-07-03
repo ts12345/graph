@@ -63,7 +63,7 @@ public class GRAPH
         if(a){
             return;
         }        
-	adjazenzmatrix[start][ziel]=gewicht;
+        adjazenzmatrix[start][ziel]=gewicht;
     }
 
     /**
@@ -86,7 +86,59 @@ public class GRAPH
      * 
      */
     public void printAdjazenzmatrix ( ) {
+        int maxlength = 0;
+        String abschluss = " | ";
+        for(int i=0; i<aktuelleAnzahlKnoten; i++){
+            String a = knotenfeld[i].getBezeichnung();
+            int b = a.length();
+            if (b>maxlength){
+                maxlength = b;
+            }
+        } 
+        for(int i2=0; i2<adjazenzmatrix.length; i2++){
+            for(int i3=0; i3<adjazenzmatrix[i2].length; i3++){
+                int length = String.valueOf(adjazenzmatrix[i2][i3]).length();
+                if(length>maxlength){
+                    maxlength=length;
+                }
+            }
+        }
 
+        String[][] inhalt = new String[aktuelleAnzahlKnoten+1][aktuelleAnzahlKnoten+1];
+        inhalt[0][0]="";
+        System.out.println(inhalt[0][0].length());
+        for(int i=1; i<inhalt[0].length; i++){
+            inhalt[0][i] = knotenfeld[i-1].getBezeichnung();
+        }
+        for(int i=1; i<inhalt.length; i++){
+            inhalt[i][0] = inhalt[0][i];
+            for(int i2=1; i2<inhalt[i].length; i2++){
+                inhalt[i][i2] = String.valueOf(adjazenzmatrix[i-1][i2-1]);
+            }
+        }
+        printStringarr(inhalt, abschluss, maxlength);
+    }
+
+    private void printStringarr(String[][] inhalt, String abschluss, int maxlength){
+        for (int i=0; i<inhalt.length; i++){
+            int zeilenlaenge = 0;
+            for(int i2=0; i2<inhalt[i].length; i2++){
+                int leerzeichen = maxlength - inhalt[i][i2].length();
+                for(int i3=0; i3<leerzeichen; i3++){
+                    System.out.print(" ");
+                    zeilenlaenge++;
+                }
+                System.out.print(inhalt[i][i2]);
+                zeilenlaenge = zeilenlaenge + inhalt[i][i2].length();
+                System.out.print(abschluss);
+                zeilenlaenge = zeilenlaenge + abschluss.length();
+            }
+            System.out.println();
+            for(int i4=0; i4<zeilenlaenge; i4++){
+                System.out.print("_");
+            }
+            System.out.println();
+        }
     }
 
     /**
