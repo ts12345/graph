@@ -1,4 +1,4 @@
-﻿/**
+/**
  * Beschreiben Sie hier die Klasse GRAPH.
  * 
  * @author (Ihr Name) 
@@ -168,11 +168,37 @@ public class GRAPH
      * @param nr die interne Nummer des Knotens
      */
     public void deleteKnoten(int nr) {
+        if(nr < 0)
+            return;
+
+        KNOTEN[] knotenfeldNEU = new KNOTEN[maximaleAnzahlKnoten];
+        for(int i = 0, j = 0; i < aktuelleAnzahlKnoten; i++, j++)
+        {
+            if( nr != i)
+                knotenfeldNEU[j] = knotenfeld[i];
+            else
+                j--;
+        }
+        knotenfeld = knotenfeldNEU;
+
+        for(int i = 0; i < maximaleAnzahlKnoten; i++)
+        {
+            adjazenzmatrix[nr][i] = -1;
+        }
+        for(int i = 0; i < maximaleAnzahlKnoten; i++)
+        {
+            adjazenzmatrix[i][nr] = -1;
+        }
         // schwere Aufgabe
         // es muss eine Zeile aus der Matrix ,,gelöscht" werden
         // die hinteren Knoten müssen ein Feld nach vorne rücken
         // am einfachsten ist es vielleicht, einfach einen neue Adjazenzmatrix und
         // eine neues Knotenfeld anzulegen
+    }
+
+    public void deleteKnoten(String bezeichnung)
+    {
+        deleteKnoten(getKnotenIndex(bezeichnung));
     }
 
     /**
