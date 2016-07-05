@@ -46,9 +46,17 @@ public class GRAPH
                 return -1;
             }
         }
-        knotenfeld[aktuelleAnzahlKnoten] = knoten;
+        int KnotenNR = 0;
+        for(int i = 0; i < aktuelleAnzahlKnoten; i++)
+        {
+            if(knotenfeld[i] == null)
+            {
+               knotenfeld[i] = knoten; 
+               KnotenNR = i;
+            }
+        }
         aktuelleAnzahlKnoten = aktuelleAnzahlKnoten + 1;
-        return aktuelleAnzahlKnoten - 1;
+        return KnotenNR;
     }
 
     /**
@@ -170,17 +178,7 @@ public class GRAPH
     public void deleteKnoten(int nr) {
         if(nr < 0)
             return;
-
-        KNOTEN[] knotenfeldNEU = new KNOTEN[maximaleAnzahlKnoten];
-        for(int i = 0, j = 0; i < aktuelleAnzahlKnoten; i++, j++)
-        {
-            if( nr != i)
-                knotenfeldNEU[j] = knotenfeld[i];
-            else
-                j--;
-        }
-        knotenfeld = knotenfeldNEU;
-
+        knotenfeld[nr] = null;
         for(int i = 0; i < maximaleAnzahlKnoten; i++)
         {
             adjazenzmatrix[nr][i] = -1;
