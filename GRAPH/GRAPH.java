@@ -148,6 +148,7 @@ public class GRAPH
      * @param ziel die interne Nummer des Zielknotens
      */
     public void deleteKante(int start, int ziel) {
+        adjazenzmatrix[start][ziel] = -1;
 
     }
 
@@ -158,8 +159,9 @@ public class GRAPH
      * @param ziel die Bezeichnung des Zielknotens
      */
     void deleteKante(String start, String ziel) {
-        // interne Nummern bestimmen und dann
-        // deleteKante(int, int) verwenden !
+        int st = getKnotenIndex(start);
+        int zi = getKnotenIndex(ziel);// interne Nummern bestimmen und dann
+        deleteKante(st,zi);// addKante(int, int, int) verwenden !
     }
 
     /**
