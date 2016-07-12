@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * Beschreiben Sie hier die Klasse GRAPH.
  * 
@@ -231,4 +233,21 @@ public class GRAPH
         return adjazenzmatrix[start][ziel];
     }
 
+    /**
+     * liefert die Nummern der benachbarten Knoten als ArrayList
+     * 
+     * @param nr die interne Nummer des Knotens
+     */
+    public ArrayList<Integer> getAdajacentVertices(int nr) {
+        ArrayList<Integer> neighbors = new ArrayList<Integer>();
+
+        for(int i = 0; i < aktuelleAnzahlKnoten; i++){        
+            if(i == nr)
+                continue;
+            if(getGewicht(nr, i) > 0)
+                neighbors.add(i);
+        }
+        
+        return neighbors;
+    }
 }
