@@ -255,6 +255,19 @@ public class GRAPH
         return neighbors;
     }
 
+    public ArrayList<Integer> getAdajacentUnvisitedVertices(int nr) {
+        ArrayList<Integer> neighbors = new ArrayList<Integer>();
+
+        for(int i = 0; i < aktuelleAnzahlKnoten; i++){        
+            if(i == nr)
+                continue;
+            if(getGewicht(nr, i) > 0 && !istBesucht[i])
+                neighbors.add(i);
+        }
+
+        return neighbors;
+    }
+
     public void markiereAllesAlsUnbesucht() {
         for(int i = 0; i < aktuelleAnzahlKnoten; i++)
             istBesucht[i] = false;
@@ -282,7 +295,7 @@ public class GRAPH
         Stack<Integer> stack = new Stack<Integer>();
         System.out.println(knotenfeld[startknoten].getBezeichnung());
         istBesucht[startknoten] = true;
-        
+
         stack.push(startknoten);
 
         while(! stack.empty()) {
