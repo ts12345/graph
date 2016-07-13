@@ -278,7 +278,29 @@ public class GRAPH
     }
 
     public void tiefensucheMitStack(int startknoten) {        
-        Stack stack = new Stack<Integer>();
+        markiereAllesAlsUnbesucht();
+        Stack<Integer> stack = new Stack<Integer>();
+        System.out.println(knotenfeld[startknoten].getBezeichnung());
+        istBesucht[startknoten] = true;
+        
+        stack.push(startknoten);
+
+        while(! stack.empty()) {
+            Integer v = stack.peek();
+            ArrayList<Integer> neighbors = getAdajacentVertices(v);
+            boolean hatUnbesuchteNachbarn = false;
+            for(Integer w: neighbors) {
+                if(!istBesucht[w]) {
+                    hatUnbesuchteNachbarn = true;
+                    System.out.println(knotenfeld[w].getBezeichnung());
+                    istBesucht[w] = true;                   
+                    stack.push(w);
+                    break;
+                }       
+            }
+            if(!hatUnbesuchteNachbarn)
+                stack.pop();
+        }       
     }
 
 }
