@@ -1,4 +1,6 @@
+
 import java.util.ArrayList;
+import java.util.Stack;
 
 /**
  * Beschreiben Sie hier die Klasse GRAPH.
@@ -12,12 +14,14 @@ public class GRAPH
     private int[][]  adjazenzmatrix; // im format adjazenzmatrix[start][ziel]
     private int maximaleAnzahlKnoten;
     private int aktuelleAnzahlKnoten;
+    private boolean[] istBesucht;
 
     public GRAPH(int maximaleAnzahlKnoten) 
     {      
         this.maximaleAnzahlKnoten = maximaleAnzahlKnoten;
 
         knotenfeld = new KNOTEN[maximaleAnzahlKnoten];
+        istBesucht = new boolean[maximaleAnzahlKnoten];
 
         adjazenzmatrix = new int[maximaleAnzahlKnoten][maximaleAnzahlKnoten];
         // Adjazenzmatrix komplett mit -1 belegen
@@ -247,7 +251,34 @@ public class GRAPH
             if(getGewicht(nr, i) > 0)
                 neighbors.add(i);
         }
-        
+
         return neighbors;
     }
+
+    public void markiereAllesAlsUnbesucht() {
+        for(int i = 0; i < aktuelleAnzahlKnoten; i++)
+            istBesucht[i] = false;
+    }
+
+    public void tiefensucheRekursiv(int startknoten) {
+        //
+        markiereAllesAlsUnbesucht();
+        tiefensucheKnoten(startknoten);
+    }
+
+    private void tiefensucheKnoten(int nr) {       
+        ArrayList<Integer> neighbors = getAdajacentVertices(nr);
+        istBesucht[nr] = true;
+        System.out.println(knotenfeld[nr].getBezeichnung());
+
+        for(Integer v: neighbors) {
+            if(!istBesucht[v])
+                tiefensucheKnoten(v);
+        }        
+    }
+
+    public void tiefensucheMitStack(int startknoten) {        
+        Stack stack = new Stack<Integer>();
+    }
+
 }
