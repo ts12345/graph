@@ -33,10 +33,10 @@ public class GRAPH
     }
 
     /**
-     * fügt dem Graph einen Knoten hinzu
+     * fuegt dem Graph einen Knoten hinzu
      * 
-     * @param knoten Der Knoten der eingefügt werden soll
-     * @return falls der Knoten eingefügt wurde, wird die interne Nummerierung zurückgegeben,
+     * @param knoten Der Knoten der eingefuegt werden soll
+     * @return falls der Knoten eingefuegt wurde, wird die interne Nummerierung zurueckgegeben,
      *         ansonsten -1
      */
     public int addKnoten(KNOTEN knoten) {
@@ -58,7 +58,7 @@ public class GRAPH
     }
 
     /**
-     * fügt dem Graphen einen Kante hinzu
+     * fuegt dem Graphen einen Kante hinzu
      * 
      * @param start die interne Nummer des Startknotens
      * @param ziel die interne Nummer des Zielknotens
@@ -73,7 +73,7 @@ public class GRAPH
     }
 
     /**
-     * fügt dem Graphen einen Kante hinzu
+     * fuegt dem Graphen einen Kante hinzu
      * 
      * @param start die Bezeichnung des Startknotens
      * @param ziel die Bezeichnung des Zielknotens
@@ -86,7 +86,7 @@ public class GRAPH
     }
 
     /**
-     * gibt die Adjazenzmatrix schön formatiert auf der Konsole aus
+     * gibt die Adjazenzmatrix schoen formatiert auf der Konsole aus
      * 
      * es werden die Spalten- und Zeilenbezeichnungen mit ausgegeben (knoten.getBezeichnung())
      * 
@@ -148,7 +148,7 @@ public class GRAPH
     }
 
     /**
-     * löscht eine Kante aus dem Graphen
+     * loescht eine Kante aus dem Graphen
      * 
      * @param start die interne Nummer des Startknotens
      * @param ziel die interne Nummer des Zielknotens
@@ -159,7 +159,7 @@ public class GRAPH
     }
 
     /**
-     * löscht eine Kante aus dem Graphen
+     * loescht eine Kante aus dem Graphen
      * 
      * @param start die Bezeichnung des Startknotens
      * @param ziel die Bezeichnung des Zielknotens
@@ -171,7 +171,7 @@ public class GRAPH
     }
 
     /**
-     * löscht einen Knoten aus dem Graphen
+     * loescht einen Knoten aus dem Graphen
      * 
      * @param nr die interne Nummer des Knotens
      */
@@ -198,8 +198,8 @@ public class GRAPH
             adjazenzmatrix[i][nr] = -1;
         }
         // schwere Aufgabe
-        // es muss eine Zeile aus der Matrix ,,gelöscht" werden
-        // die hinteren Knoten müssen ein Feld nach vorne rücken
+        // es muss eine Zeile aus der Matrix ,,geloescht" werden
+        // die hinteren Knoten muessen ein Feld nach vorne ruecken
         // am einfachsten ist es vielleicht, einfach einen neue Adjazenzmatrix und
         // eine neues Knotenfeld anzulegen
     }
@@ -210,10 +210,10 @@ public class GRAPH
     }
 
     /**
-     * findet den internen Index, der zum Knoten mit der Bezeichnung bezeichnung gehört
+     * findet den internen Index, der zum Knoten mit der Bezeichnung bezeichnung gehoert
      * 
      * @param bezeichnung Die Bezeichung des Knoten, der gesucht werden soll
-     * @return falls der Knoten gefunden wurde, wird die interne Nummerierung zurückgegeben,
+     * @return falls der Knoten gefunden wurde, wird die interne Nummerierung zurueckgegeben,
      *         ansonsten -1
      */
     public int getKnotenIndex(String bezeichnung) {
