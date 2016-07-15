@@ -1,6 +1,8 @@
 
 import java.util.ArrayList;
 import java.util.Stack;
+import java.util.Queue;
+import java.util.LinkedList;
 
 /**
  * Beschreiben Sie hier die Klasse GRAPH.
@@ -316,4 +318,46 @@ public class GRAPH
         }       
     }
 
+
+    /**
+     * fuehrt die Breitensuche durch
+     *
+     * @param startknoten die interne Nummer des Startknotens
+     * @return in feld[0][x] steckt die Distanz zu Knoten x <br>
+     * in feld[1][x] steckt der Vorgaenger zu Knoten x
+     */
+    public int[][] breitensuche(int startknoten) {
+        markiereAllesAlsUnbesucht();
+        Queue<Integer> queue = new LinkedList<Integer>();
+        System.out.println(startknoten);
+        queue.add(startknoten);
+        istBesucht[startknoten] = true;
+
+        int[] vorgaenger = new int[aktuelleAnzahlKnoten];
+        int[] distanz = new int[aktuelleAnzahlKnoten];
+
+        for(int i = 0; i < aktuelleAnzahlKnoten; i++) {
+            vorgaenger[i] = -1;
+            distanz[i] = -1;
+        }
+
+        distanz[startknoten] = 0;
+
+        int v;
+        while( !queue.isEmpty() ) {
+            v = queue.remove();
+            ArrayList<Integer> neighbors = getAdajacentUnvisitedVertices(v);
+            for(Integer w: neighbors) {
+                System.out.println(w);
+                istBesucht[w] = true;
+                queue.add(w);
+                vorgaenger[w] = v;
+                distanz[w] = distanz[v] + 1;
+            }
+        }
+        int[][] rueckgabe = new int[2][aktuelleAnzahlKnoten];
+        rueckgabe[0] = distanz;
+        rueckgabe[1] = vorgaenger;
+        return rueckgabe;
+    }
 }
